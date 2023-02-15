@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mafin.Template", "src\Mafin.Template\Mafin.Template.csproj", "{1C8F06BF-70BE-44A5-9F01-1E9775F60B4F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E080EBEC-509D-4DE0-99F4-6262D0EBFB89}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{608C1756-29E2-45D8-9826-967603FB66B0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mafin.Template.Tests.Unit", "tests\Mafin.Template.Tests.Unit\Mafin.Template.Tests.Unit.csproj", "{4B031DA2-E0E4-4F6C-BDBB-1FD5DB2476FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DABEE7D9-74D7-4FAF-B688-8F7ABBDE8D60}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		.gitlab-ci.yml = .gitlab-ci.yml
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		GitVersion.yml = GitVersion.yml
+		nuget.config = nuget.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{32BF8D0B-AF67-4676-9387-84E4FA4AC738}"
+	ProjectSection(SolutionItems) = preProject
+		tests\.editorconfig = tests\.editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C8F06BF-70BE-44A5-9F01-1E9775F60B4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C8F06BF-70BE-44A5-9F01-1E9775F60B4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C8F06BF-70BE-44A5-9F01-1E9775F60B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C8F06BF-70BE-44A5-9F01-1E9775F60B4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B031DA2-E0E4-4F6C-BDBB-1FD5DB2476FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B031DA2-E0E4-4F6C-BDBB-1FD5DB2476FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B031DA2-E0E4-4F6C-BDBB-1FD5DB2476FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B031DA2-E0E4-4F6C-BDBB-1FD5DB2476FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1C8F06BF-70BE-44A5-9F01-1E9775F60B4F} = {E080EBEC-509D-4DE0-99F4-6262D0EBFB89}
+		{4B031DA2-E0E4-4F6C-BDBB-1FD5DB2476FE} = {608C1756-29E2-45D8-9826-967603FB66B0}
+		{32BF8D0B-AF67-4676-9387-84E4FA4AC738} = {DABEE7D9-74D7-4FAF-B688-8F7ABBDE8D60}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D8B7548B-B4CE-4A83-BD27-CDB642677955}
+	EndGlobalSection
+EndGlobal
