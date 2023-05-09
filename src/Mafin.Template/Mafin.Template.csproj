@@ -2,12 +2,11 @@
   <PropertyGroup>
     <TargetFrameworks>net6.0;netstandard2.1</TargetFrameworks>
     <PackageId>Mafin.Template</PackageId>
-    <PackageVersion></PackageVersion>
-    <Description>Mafin Template package</Description>
-    <Authors>Epam Mafin Team</Authors>
+    <Description>MAFIN Template package</Description>
+    <Authors>MAFIN Squad</Authors>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GitVersion.MsBuild" PrivateAssets="all" />
+    <InternalsVisibleTo Include="$(MSBuildProjectName).Tests.Unit" />
   </ItemGroup>
 </Project>
