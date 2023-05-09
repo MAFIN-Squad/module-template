@@ -1,0 +1,69 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+env:
+  CONFIGURATION: Release
+  PACKAGE_OUPUT_DIRECTORY: ${{ github.workspace }}/output
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: |
+          6.0.x
+          7.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build solution
+      run: dotnet build -c ${{ env.CONFIGURATION }} --no-restore -m
+
+    - name: Run unit tests
+      run: dotnet test tests/*.Unit/*.csproj -c ${{ env.CONFIGURATION }} --no-build --collect:"XPlat Code Coverage" -m
+
+    - name: Upload code coverage results
+      uses: codecov/codecov-action@v3
+
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' }}
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: |
+          6.0.x
+          7.0.x
+
+    - name: Setup GitVersion
+      uses: gittools/actions/gitversion/setup@v0
+      with:
+        versionSpec: '5.x'
+
+    - name: Determine version number
+      uses: gittools/actions/gitversion/execute@v0
+
+    - name: Pack solution
+      run: dotnet pack -o ${{ env.PACKAGE_OUPUT_DIRECTORY }} -c ${{ env.CONFIGURATION }} -p:PackageVersion=${{ env.semVer }} --include-symbols
+
+    - name: Publish to NuGet
+      run: dotnet nuget push ${{ env.PACKAGE_OUPUT_DIRECTORY }}/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json --skip-duplicate
