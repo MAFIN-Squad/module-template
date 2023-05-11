@@ -4,6 +4,7 @@
     <PackageId>Mafin.Template</PackageId>
     <Description>MAFIN Template package</Description>
     <Authors>MAFIN Squad</Authors>
+    <Version></Version>
   </PropertyGroup>
 
   <ItemGroup>
