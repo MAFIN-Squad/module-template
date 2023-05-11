@@ -37,15 +37,13 @@ jobs:
     - name: Upload code coverage results
       uses: codecov/codecov-action@v3
 
-  publish:
+  release:
     needs: test
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'push' }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
@@ -54,16 +52,8 @@ jobs:
           6.0.x
           7.0.x
 
-    - name: Setup GitVersion
-      uses: gittools/actions/gitversion/setup@v0
-      with:
-        versionSpec: '5.x'
-
-    - name: Determine version number
-      uses: gittools/actions/gitversion/execute@v0
-
     - name: Pack solution
-      run: dotnet pack -o ${{ env.PACKAGE_OUPUT_DIRECTORY }} -c ${{ env.CONFIGURATION }} -p:PackageVersion=${{ env.semVer }} --include-symbols
+      run: dotnet pack -o ${{ env.PACKAGE_OUPUT_DIRECTORY }} -c ${{ env.CONFIGURATION }} --include-symbols
 
     - name: Publish to NuGet
       run: dotnet nuget push ${{ env.PACKAGE_OUPUT_DIRECTORY }}/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json --skip-duplicate
