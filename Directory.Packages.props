@@ -1,6 +1,5 @@
 <Project>
   <PropertyGroup>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
