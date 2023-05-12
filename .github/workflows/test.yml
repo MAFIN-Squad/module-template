@@ -1,4 +1,4 @@
-name: CI
+name: Test
 
 on:
   workflow_dispatch:
@@ -9,7 +9,6 @@ on:
 
 env:
   CONFIGURATION: Release
-  PACKAGE_OUPUT_DIRECTORY: ${{ github.workspace }}/output
 
 jobs:
   test:
@@ -36,24 +35,3 @@ jobs:
 
     - name: Upload code coverage results
       uses: codecov/codecov-action@v3
-
-  release:
-    needs: test
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' }}
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: |
-          6.0.x
-          7.0.x
-
-    - name: Pack solution
-      run: dotnet pack -o ${{ env.PACKAGE_OUPUT_DIRECTORY }} -c ${{ env.CONFIGURATION }} --include-symbols
-
-    - name: Publish to NuGet
-      run: dotnet nuget push ${{ env.PACKAGE_OUPUT_DIRECTORY }}/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json --skip-duplicate
