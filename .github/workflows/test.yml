@@ -1,0 +1,37 @@
+name: Test
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+env:
+  CONFIGURATION: Release
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: |
+          6.0.x
+          7.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build solution
+      run: dotnet build -c ${{ env.CONFIGURATION }} --no-restore -m
+
+    - name: Run unit tests
+      run: dotnet test tests/*.Unit/*.csproj -c ${{ env.CONFIGURATION }} --no-build --collect:"XPlat Code Coverage" -m
+
+    - name: Upload code coverage results
+      uses: codecov/codecov-action@v3

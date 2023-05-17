@@ -2,12 +2,19 @@
   <PropertyGroup>
     <TargetFrameworks>net6.0;netstandard2.1</TargetFrameworks>
     <PackageId>Mafin.Template</PackageId>
-    <PackageVersion></PackageVersion>
-    <Description>Mafin Template package</Description>
-    <Authors>Epam Mafin Team</Authors>
+    <Description>MAFIN Template package</Description>
+    <Authors>MAFIN Squad</Authors>
+    <PackageProjectUrl>https://github.com/MAFIN-Squad</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/MAFIN-Squad/module-template</RepositoryUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Version></Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GitVersion.MsBuild" PrivateAssets="all" />
+    <InternalsVisibleTo Include="$(MSBuildProjectName).Tests.Unit" />
+
+    <None Include="..\..\LICENSE" Pack="True" PackagePath="\" />
+    <None Include="..\..\README.md" Pack="True" PackagePath="\" />
   </ItemGroup>
 </Project>
