@@ -20,18 +20,16 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: |
-          6.0.x
-          7.0.x
+        dotnet-version: 7.0.x
 
     - name: Restore dependencies
       run: dotnet restore
 
     - name: Build solution
-      run: dotnet build -c ${{ env.CONFIGURATION }} --no-restore -m
+      run: dotnet build -c ${{ env.CONFIGURATION }} --no-restore
 
     - name: Run unit tests
-      run: dotnet test tests/*.Unit/*.csproj -c ${{ env.CONFIGURATION }} --no-build --collect:"XPlat Code Coverage" -m
+      run: dotnet test tests/*.Unit/*.csproj -c ${{ env.CONFIGURATION }} --no-build --collect:"XPlat Code Coverage"
 
     - name: Upload code coverage results
       uses: codecov/codecov-action@v3
