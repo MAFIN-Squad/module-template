@@ -7,7 +7,7 @@
     <PackageVersion Include="FluentAssertions" Version="6.11.0" />
     <PackageVersion Include="FluentAssertions.Analyzers" Version="0.21.0" />
     <PackageVersion Include="Microsoft.CST.DevSkim" Version="1.0.14" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.6.3" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.7.0" />
     <PackageVersion Include="Philips.CodeAnalysis.DuplicateCodeAnalyzer" Version="1.1.7" />
     <PackageVersion Include="SonarAnalyzer.CSharp" Version="9.6.0.74858" />
     <PackageVersion Include="StyleCop.Analyzers.Unstable" Version="1.2.0.507" />
