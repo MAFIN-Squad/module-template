@@ -13,7 +13,7 @@
   <ItemGroup>
     <InternalsVisibleTo Include="$(MSBuildProjectName).Tests.Unit" />
 
-    <None Include="..\..\LICENSE" Pack="True" PackagePath="\" />
-    <None Include="..\..\README.md" Pack="True" PackagePath="\" />
+    <None Include="..\..\LICENSE" Pack="True" PackagePath="\" Visible="False" />
+    <None Include="..\..\README.md" Pack="True" PackagePath="\" Visible="False" />
   </ItemGroup>
 </Project>
