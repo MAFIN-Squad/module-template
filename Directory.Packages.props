@@ -4,14 +4,15 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="coverlet.collector" Version="6.0.0" />
-    <PackageVersion Include="FluentAssertions" Version="6.11.0" />
-    <PackageVersion Include="FluentAssertions.Analyzers" Version="0.22.0" />
-    <PackageVersion Include="Microsoft.CST.DevSkim" Version="1.0.18" />
+    <PackageVersion Include="FluentAssertions" Version="6.12.0" />
+    <PackageVersion Include="FluentAssertions.Analyzers" Version="0.23.1" />
+    <PackageVersion Include="Microsoft.CST.DevSkim" Version="1.0.19" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.7.1" />
     <PackageVersion Include="Philips.CodeAnalysis.DuplicateCodeAnalyzer" Version="1.1.7" />
     <PackageVersion Include="SonarAnalyzer.CSharp" Version="9.8.0.76515" />
     <PackageVersion Include="StyleCop.Analyzers.Unstable" Version="1.2.0.507" />
-    <PackageVersion Include="xunit" Version="2.5.0" />
+    <PackageVersion Include="xunit.analyzers" Version="1.2.0" />
+    <PackageVersion Include="xunit.core" Version="2.5.0" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="2.5.0" />
   </ItemGroup>
 </Project>
