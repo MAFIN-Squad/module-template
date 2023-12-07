@@ -6,24 +6,6 @@ on:
     tags:
     - 'v*'
 
-env:
-  CONFIGURATION: Release
-  PACKAGE_OUPUT_DIRECTORY: ${{ github.workspace }}/output
-
 jobs:
   release:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 7.0.x
-
-    - name: Pack solution
-      run: dotnet pack -o ${{ env.PACKAGE_OUPUT_DIRECTORY }} -c ${{ env.CONFIGURATION }} --include-symbols
-
-    - name: Publish to NuGet
-      run: dotnet nuget push ${{ env.PACKAGE_OUPUT_DIRECTORY }}/*.nupkg -k ${{ secrets.NUGET_API_KEY }}
+    uses: MAFIN-Squad/workflows/.github/workflows/package-release.yml@main
