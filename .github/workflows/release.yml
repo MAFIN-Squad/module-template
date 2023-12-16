@@ -9,3 +9,5 @@ on:
 jobs:
   release:
     uses: MAFIN-Squad/workflows/.github/workflows/package-release.yml@main
+    secrets:
+      nuget-key: ${{ secrets.NUGET_API_KEY }}
