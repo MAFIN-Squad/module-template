@@ -10,3 +10,5 @@ on:
 jobs:
   test:
     uses: MAFIN-Squad/workflows/.github/workflows/package-test.yml@main
+    secrets:
+      codecov-token: ${{ secrets.CODECOV_TOKEN }}
