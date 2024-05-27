@@ -10,7 +10,7 @@
     <PackageVersion Include="Philips.CodeAnalysis.DuplicateCodeAnalyzer" Version="1.1.7" />
     <PackageVersion Include="SonarAnalyzer.CSharp" Version="9.25.0.90414" />
     <PackageVersion Include="StyleCop.Analyzers.Unstable" Version="1.2.0.556" />
-    <PackageVersion Include="xunit.analyzers" Version="1.13.0" />
+    <PackageVersion Include="xunit.analyzers" Version="1.14.0" />
     <PackageVersion Include="xunit.core" Version="2.8.0" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="2.8.0" />
   </ItemGroup>
